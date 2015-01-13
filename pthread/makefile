@@ -1,11 +1,11 @@
-srcs=prog.c
+srcs=prog.c common.c
 objs:=$(srcs:.c=.o)
 deps:=$(srcs:.c=.d)
 
 CFLAGS=-c -g -w
 
 prog:$(objs)
-	gcc -o prog $^
+	gcc -o prog $^ -lpthread
 
 -include $(deps)
 $(objs):%.o:%.c
